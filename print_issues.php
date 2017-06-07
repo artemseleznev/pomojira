@@ -33,7 +33,12 @@ foreach ($issueList as $issueKey)
 <link type="text/css" rel="stylesheet" href="https://hq.tutu.ru/s/2a21883ce1363b7b74a655e959c64c5c-T/ljarqa/72005/e2b820449dba7db3e64153a92911b4be/7.2.3/_/download/batch/com.atlassian.feedback.jira-feedback-plugin:button-resources-init/com.atlassian.feedback.jira-feedback-plugin:button-resources-init.css" data-wrm-key="com.atlassian.feedback.jira-feedback-plugin:button-resources-init" data-wrm-batch-type="resource" media="all">
 <style type="text/css">
 	.ghx-print-card-body .ghx-print-large .ghx-card-footer {
-		height: 110px;
+		height: 115px;
+	}
+
+	.ghx-print-card-body .ghx-card-header .ghx-card-icon, .ghx-print-card-body .ghx-card-header .ghx-card-icon img {
+		height: 32px;
+		width: 32px;
 	}
 
 	.ghx-print-card-body .ghx-print-large .ghx-card {
@@ -42,15 +47,17 @@ foreach ($issueList as $issueKey)
 		width: 620px;
 	}
 
+	.ghx-card-summary {
+		margin-top: 30px;
+	}
+
 	.tester-wrapper {
-		width: 120px;
+		width: 180px;
 		float: right;
-		padding: 15px;
+		padding: 0 15px;
 		border: 1px dashed #000;
 		border-radius: 4px;
-
 		color: #707070;
-		font-size: large;
 	}
 
 	.tester {
@@ -60,13 +67,14 @@ foreach ($issueList as $issueKey)
 		border: 1px solid #000;
 		border-radius: 50%;
 		margin: 10px;
+		white-space: nowrap;
 	}
 
 	.tester-text {
 		position: absolute;
 		left: 33px;
-		font-size: 40px;
-		top: -20px;
+		font-size: 33px;
+		top: -14px;
 	}
 
 	.strikethrough {
