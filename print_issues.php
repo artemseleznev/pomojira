@@ -131,9 +131,9 @@ foreach ($issueList as $issueKey)
 				</div>
 				<div class="ghx-card-footer">
 					<div class="tester-wrapper">
-						<div class="tester"><span class="tester-text">need t</span></div>
-						<div class="tester"><span class="tester-text">external t</span></div>
-						<div class="tester"><span class="tester-text strikethrough">need t</span></div>
+						<div class="tester"><span class="tester-text">need <b>t</b></span></div>
+						<div class="tester"><span class="tester-text">external <b>t</b></span></div>
+						<div class="tester"><span class="tester-text strikethrough">need <b>t</b></span></div>
 					</div>
 				</div>
 			</div>
