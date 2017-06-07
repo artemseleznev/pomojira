@@ -23,19 +23,70 @@ foreach ($issueList as $issueKey)
     ];
 }
 ?>
+<!DOCTYPE html>
+<head>
+	<title>Print jira issues</title>
+</head>
 <link type="text/css" rel="stylesheet" href="https://hq.tutu.ru/s/f86ae594ebbf179ede10d2eee7b3bd78-CDN/ljarqa/72005/e2b820449dba7db3e64153a92911b4be/28f4022e59967068c4f033a45fdbe612/_/download/contextbatch/css/_super/batch.css?atlassian.aui.raphael.disabled=true" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
 <link type="text/css" rel="stylesheet" href="https://hq.tutu.ru/s/12481e7c867955039984da8a455cfb20-CDN/ljarqa/72005/e2b820449dba7db3e64153a92911b4be/785da28a61efbef21cad6163b341edd3/_/download/contextbatch/css/greenhopper-rapid-non-gadget,atl.general,gh-rapid,jira.project.sidebar,com.atlassian.jira.projects.sidebar.init,jira.global,jira.general,-_super/batch.css?agile_global_admin_condition=true&amp;atlassian.aui.raphael.disabled=true&amp;hc-enabled=true&amp;is-server-instance=true&amp;jag=true&amp;jaguser=true&amp;nps-not-opted-out=true&amp;sd_operational=true" data-wrm-key="greenhopper-rapid-non-gadget,atl.general,gh-rapid,jira.project.sidebar,com.atlassian.jira.projects.sidebar.init,jira.global,jira.general,-_super" data-wrm-batch-type="context" media="all">
 <link type="text/css" rel="stylesheet" href="https://hq.tutu.ru/s/36f98085b58aa80d794a3b54018eda21-CDN/ljarqa/72005/e2b820449dba7db3e64153a92911b4be/db2d903ac476c291ba8e898fcd04e603/_/download/contextbatch/css/gh-rapid-charts,-_super/batch.css?atlassian.aui.raphael.disabled=true" data-wrm-key="gh-rapid-charts,-_super" data-wrm-batch-type="context" media="all">
 <link type="text/css" rel="stylesheet" href="https://hq.tutu.ru/s/2a21883ce1363b7b74a655e959c64c5c-T/ljarqa/72005/e2b820449dba7db3e64153a92911b4be/7.2.3/_/download/batch/com.atlassian.feedback.jira-feedback-plugin:button-resources-init/com.atlassian.feedback.jira-feedback-plugin:button-resources-init.css" data-wrm-key="com.atlassian.feedback.jira-feedback-plugin:button-resources-init" data-wrm-batch-type="resource" media="all">
+<style type="text/css">
+	.ghx-print-card-body .ghx-print-large .ghx-card-footer {
+		height: 110px;
+	}
 
+	.ghx-print-card-body .ghx-print-large .ghx-card {
+		height: 400px;
+		padding: 35px 35px 35px 35px;
+		width: 620px;
+	}
 
-<button class="pop" onclick="printPage();">Print</button>
+	.tester-wrapper {
+		width: 120px;
+		float: right;
+		padding: 15px;
+		border: 1px dashed #000;
+		border-radius: 4px;
 
+		color: #707070;
+		font-size: large;
+	}
 
+	.tester {
+		position: relative;
+		width: 22px;
+		height: 22px;
+		border: 1px solid #000;
+		border-radius: 50%;
+		margin: 10px;
+	}
 
+	.tester-text {
+		position: absolute;
+		left: 33px;
+		font-size: 40px;
+		top: -20px;
+	}
 
+	.strikethrough {
+		position: relative;
+	}
+
+	.strikethrough:before {
+		border-bottom: 3px solid red;
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 50%;
+		transform: rotate(-7deg);
+	}
+</style>
+</head>
 
 <body id="jira" class="ghx-print-card-body">
+
+<button class="pop" onclick="printPage();">Print</button>
 
 <?php foreach($dataToRender as $item): ?>
 	<div class="ghx-print-content-sizing ghx-print-large">
@@ -70,7 +121,12 @@ foreach ($issueList as $issueKey)
 						<div class="ghx-card-xfield-value"><?= $item['codeReviewer']; ?></div>
 					</div>
 				</div>
-				<div class="ghx-card-footer"></div>
+				<div class="ghx-card-footer">
+					<div class="tester-wrapper">
+						<div class="tester"><span class="tester-text">test</span></div>
+						<div class="tester"><span class="tester-text strikethrough">test</span></div>
+					</div>
+				</div>
 			</div>
 			<div class="ghx-card-color" style="border-color:#66cc33;"></div>
 		</div>
@@ -94,3 +150,4 @@ foreach ($issueList as $issueKey)
         return false;
     }
 </script>
+</html>
