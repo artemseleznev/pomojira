@@ -64,6 +64,7 @@ foreach ($issueList as $issueKey)
 		padding: 0 15px;
 		border: 1px dashed #000;
 		border-radius: 4px;
+		background-color: #fff;
 		color: #707070;
 	}
 
