@@ -42,7 +42,7 @@ foreach ($issueList as $issueKey)
 	}
 
 	.ghx-print-card-body .ghx-print-large .ghx-card {
-		height: 400px;
+		height: 100%;
 		padding: 35px 35px 35px 35px;
 		width: 620px;
 	}
@@ -69,37 +69,52 @@ foreach ($issueList as $issueKey)
 	}
 
 	.tester {
-		position: relative;
-		width: 22px;
-		height: 22px;
-		border: 1px solid #000;
-		border-radius: 50%;
-		margin: 10px;
-		white-space: nowrap;
+		display: inline-block;
+		width: 170px;
+		margin-left: 10px;
+		height: 100%;
+		vertical-align: middle;
+		margin-top: -15px;
+	}
+
+	.tester table {
+		border-spacing: 10px 0;
+		opacity: 0.6;
+	}
+
+	.tester thead {
+		line-height: 15px;
+		letter-spacing: 4px;
 	}
 
 	.tester-text {
-		position: absolute;
-		left: 33px;
-		font-size: 25px;
-		top: -7px;
+		width: 40px;
+		height: 30px;
+		margin: 10px;
+		max-width: 40px;
+		overflow: hidden;
 		font-weight: bold;
+		font-size: 10px;
+		line-height: 11px;
+		text-align: center;
 	}
 
 	.internal {
 		color: red;
+		border: 2px solid red;
+		background-color: #ffd1d1 !important;
 	}
 
 	.nothing {
 		color: green;
+		border: 2px solid green;
+		background-color: #d4f0d9;
 	}
 
 	.external {
-		color: gray;
-	}
-
-	h3 {
-		color: gray;
+		background-color: #d1d1d1;
+		color: #000;
+		border: 2px solid #000;
 	}
 </style>
 </head>
@@ -122,6 +137,12 @@ foreach ($issueList as $issueKey)
 					<div class="ghx-card-key" style="font-size: 58px; font-weight: bold;">
 						<?= $item['issueKey']; ?>
 					</div>
+					<div class="tester">
+						<table style="border-spacing: 10px 0;opacity: 0.6;">
+							<thead><tr><th colspan="3">Тестирование</th></tr></thead>
+							<tbody><tr><td class="tester-text">нужно</td><td class="tester-text">не нужно</td><td class="tester-text">внешн</td></tr></tbody>
+						</table>
+					</div>
 					<div class="ghx-row-end">
 						<img src="<?=$item['assigneeAvatarLink'];?>" class="ghx-avatar-img" style="border-radius: 25px; height: 100px; line-height: 50px; width: 100px;">
 					</div>
@@ -142,12 +163,6 @@ foreach ($issueList as $issueKey)
 					</div>
 				</div>
 				<div class="ghx-card-footer">
-					<div class="tester-wrapper">
-						<h3>Тестирование</h3>
-						<div class="tester"><span class="tester-text internal">нужно</span></div>
-						<div class="tester"><span class="tester-text nothing">не нужно</span></div>
-						<div class="tester"><span class="tester-text external">внешнее</span></div>
-					</div>
 				</div>
 			</div>
 			<div class="ghx-card-color" style="border-color:#66cc33;"></div>
