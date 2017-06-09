@@ -48,7 +48,14 @@ foreach ($issueList as $issueKey)
 	}
 
 	.ghx-card-summary {
-		margin-top: 30px;
+		margin-top: 30px !important;
+		font-size: 45px !important;
+		line-height: 1em !important;
+	}
+
+	img.ghx-avatar-img {
+		width: 80px !important;
+		height: 80px !important;
 	}
 
 	.tester-wrapper {
