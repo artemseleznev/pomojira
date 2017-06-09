@@ -74,7 +74,7 @@ foreach ($issueList as $issueKey)
 	.tester {
 		display: inline-block;
 		width: 170px;
-		margin-left: 10px;
+		margin-left: 90px;
 		height: 100%;
 		vertical-align: middle;
 		margin-top: -15px;
@@ -131,12 +131,6 @@ foreach ($issueList as $issueKey)
 		<div class="ghx-card ">
 			<div class="ghx-card-content">
 				<div class="ghx-card-header">
-					<div class="ghx-card-icon">
-						<img src="https://hq.tutu.ru/secure/viewavatar?size=xsmall&amp;avatarId=14015&amp;avatarType=issuetype">
-					</div>
-					<div class="ghx-card-icon">
-						<img src="https://hq.tutu.ru/images/icons/custom_priorities/equal.png">
-					</div>
 					<div class="ghx-card-key" style="font-size: 58px; font-weight: bold;">
 						<?= $item['issueKey']; ?>
 					</div>
