@@ -32,6 +32,9 @@ foreach ($issueList as $issueKey)
 <link type="text/css" rel="stylesheet" href="https://hq.tutu.ru/s/36f98085b58aa80d794a3b54018eda21-CDN/ljarqa/72005/e2b820449dba7db3e64153a92911b4be/db2d903ac476c291ba8e898fcd04e603/_/download/contextbatch/css/gh-rapid-charts,-_super/batch.css?atlassian.aui.raphael.disabled=true" data-wrm-key="gh-rapid-charts,-_super" data-wrm-batch-type="context" media="all">
 <link type="text/css" rel="stylesheet" href="https://hq.tutu.ru/s/2a21883ce1363b7b74a655e959c64c5c-T/ljarqa/72005/e2b820449dba7db3e64153a92911b4be/7.2.3/_/download/batch/com.atlassian.feedback.jira-feedback-plugin:button-resources-init/com.atlassian.feedback.jira-feedback-plugin:button-resources-init.css" data-wrm-key="com.atlassian.feedback.jira-feedback-plugin:button-resources-init" data-wrm-batch-type="resource" media="all">
 <style type="text/css">
+	@media print { body { -webkit-print-color-adjust: exact; } }
+</style>
+<style type="text/css">
 	.ghx-print-card-body .ghx-print-large .ghx-card-footer {
 		height: 150px;
 	}
