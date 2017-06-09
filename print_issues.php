@@ -43,7 +43,7 @@ foreach ($issueList as $issueKey)
 
 	.ghx-print-card-body .ghx-print-large .ghx-card {
 		height: 100%;
-		padding: 35px 35px 35px 35px;
+		padding: 20px 10px 35px 35px;
 		width: 620px;
 	}
 
@@ -89,14 +89,14 @@ foreach ($issueList as $issueKey)
 
 	.tester-text {
 		width: 40px;
-		height: 30px;
+		height: 35px;
 		margin: 10px;
 		max-width: 40px;
 		overflow: hidden;
-		font-weight: bold;
-		font-size: 10px;
-		line-height: 11px;
+		font-size: 11px;
 		text-align: center;
+		line-height: 11px;
+		font-weight: bold;
 	}
 
 	.internal {
@@ -140,7 +140,7 @@ foreach ($issueList as $issueKey)
 					<div class="tester">
 						<table style="border-spacing: 10px 0;opacity: 0.6;">
 							<thead><tr><th colspan="3">Тестирование</th></tr></thead>
-							<tbody><tr><td class="tester-text">нужно</td><td class="tester-text">не нужно</td><td class="tester-text">внешн</td></tr></tbody>
+							<tbody><tr><td class="tester-text internal">нужно</td><td class="tester-text nothing">не нужно</td><td class="tester-text external">внешн</td></tr></tbody>
 						</table>
 					</div>
 					<div class="ghx-row-end">
