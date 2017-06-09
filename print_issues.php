@@ -81,8 +81,9 @@ foreach ($issueList as $issueKey)
 	.tester-text {
 		position: absolute;
 		left: 33px;
-		font-size: 33px;
-		top: -14px;
+		font-size: 25px;
+		top: -7px;
+		font-weight: bold;
 	}
 
 	.internal {
@@ -94,11 +95,11 @@ foreach ($issueList as $issueKey)
 	}
 
 	.external {
-		color: #707070;
+		color: gray;
 	}
 
 	h3 {
-		color: #707070;
+		color: gray;
 	}
 </style>
 </head>
