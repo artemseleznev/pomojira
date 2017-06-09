@@ -33,7 +33,7 @@ foreach ($issueList as $issueKey)
 <link type="text/css" rel="stylesheet" href="https://hq.tutu.ru/s/2a21883ce1363b7b74a655e959c64c5c-T/ljarqa/72005/e2b820449dba7db3e64153a92911b4be/7.2.3/_/download/batch/com.atlassian.feedback.jira-feedback-plugin:button-resources-init/com.atlassian.feedback.jira-feedback-plugin:button-resources-init.css" data-wrm-key="com.atlassian.feedback.jira-feedback-plugin:button-resources-init" data-wrm-batch-type="resource" media="all">
 <style type="text/css">
 	.ghx-print-card-body .ghx-print-large .ghx-card-footer {
-		height: 115px;
+		height: 150px;
 	}
 
 	.ghx-print-card-body .ghx-card-header .ghx-card-icon, .ghx-print-card-body .ghx-card-header .ghx-card-icon img {
@@ -85,17 +85,20 @@ foreach ($issueList as $issueKey)
 		top: -14px;
 	}
 
-	.strikethrough {
-		position: relative;
+	.internal {
+		color: red;
 	}
 
-	.strikethrough:before {
-		border-bottom: 3px solid red;
-		position: absolute;
-		content: "";
-		width: 100%;
-		height: 50%;
-		transform: rotate(-7deg);
+	.nothing {
+		color: green;
+	}
+
+	.external {
+		color: #707070;
+	}
+
+	h3 {
+		color: #707070;
 	}
 </style>
 </head>
@@ -139,9 +142,10 @@ foreach ($issueList as $issueKey)
 				</div>
 				<div class="ghx-card-footer">
 					<div class="tester-wrapper">
-						<div class="tester"><span class="tester-text">need <b>t</b></span></div>
-						<div class="tester"><span class="tester-text">external <b>t</b></span></div>
-						<div class="tester"><span class="tester-text strikethrough">need <b>t</b></span></div>
+						<h3>Тестирование</h3>
+						<div class="tester"><span class="tester-text internal">нужно</span></div>
+						<div class="tester"><span class="tester-text nothing">не нужно</span></div>
+						<div class="tester"><span class="tester-text external">внешнее</span></div>
 					</div>
 				</div>
 			</div>
