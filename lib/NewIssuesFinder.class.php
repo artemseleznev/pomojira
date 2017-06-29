@@ -46,7 +46,7 @@ class NewIssuesFinder
 		$walker->push(
 			"project = 'CF' 
 			AND (status != closed OR resolution = Fixed) 
-			AND issuetype not in (epic, QA-Dev, QA-Task)
+			AND issuetype not in (epic)
 			AND status != Open
 			AND (fixVersion in unreleasedVersions() OR fixVersion is EMPTY) and 
 			(
