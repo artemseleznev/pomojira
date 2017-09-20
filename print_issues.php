@@ -18,7 +18,8 @@ foreach ($issueList as $issueKey)
 		'assigneeName' => $issueData['fields']['assignee']['name'],
 		'assigneeAvatarLink' => $issueData['fields']['assignee']['avatarUrls']['48x48'],
 		'summary' => $issueData['fields']['summary'],
-		'component' => $issueData['fields']['components'][0]['name'],
+		// можно сделать вывод компонента задачи, если потребуется:
+		//'component' => $issueData['fields']['components'][0]['name'],
 		'codeReviewer' => $issueData['fields']['customfield_10011']['displayName']
     ];
 }
@@ -152,7 +153,7 @@ foreach ($issueList as $issueKey)
 				<div class="ghx-card-extra-fields" style="display: none;">
 					<div class="ghx-card-xfield-row">
 						<div class="ghx-card-xfield-label">Компоненты</div>
-						<div class="ghx-card-xfield-value"><?= $item['component']; ?></div>
+						<div class="ghx-card-xfield-value">Компонент</div>
 					</div>
 					<div class="ghx-card-xfield-row">
 						<div class="ghx-card-xfield-label">Code reviewer</div>
