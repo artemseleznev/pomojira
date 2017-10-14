@@ -8,14 +8,21 @@ use chobie\Jira\Api\Authentication\Basic;
 
 class Helper
 {
+	private static $_api;
+
 	public static function getApi()
 	{
-		$credentials = explode(';', file_get_contents('credentials'));
-		list($login, $password) = $credentials;
+		if (is_null(self::$_api))
+		{
+			$credentials = explode(';', file_get_contents('credentials'));
+			list($login, $password) = $credentials;
 
-		return new Api(
-			'https://hq.tutu.ru',
-			new Basic($login, $password)
-		);
+			self::$_api = new Api(
+				'https://hq.tutu.ru',
+				new Basic($login, $password)
+			);
+		}
+
+		return self::$_api;
 	}
 }

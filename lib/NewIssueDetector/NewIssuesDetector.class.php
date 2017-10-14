@@ -5,9 +5,9 @@
 
 use chobie\Jira\Issues\Walker;
 
-class NewIssuesFinder
+class NewIssuesDetector
 {
-	public function findNewIssues()
+	public function detectNewIssues()
 	{
 		$issueList = $this->_getIssuesFromBoard();
 		$savedIssuesList = $this->_getSavedIssues();

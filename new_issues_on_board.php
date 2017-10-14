@@ -7,21 +7,21 @@
     <?php
 
     require_once 'vendor/autoload.php';
-    require_once 'lib/NewIssuesFinder.class.php';
-	require_once 'lib/IssueStorage.class.php';
+    require_once 'lib/NewIssueDetector/NewIssuesDetector.class.php';
+	require_once 'lib/NewIssueDetector/IssueStorage.class.php';
 	require_once 'lib/Helper.class.php';
 
-	$newIssuesFinder = new NewIssuesFinder();
+	$newIssuesDetector = new NewIssuesDetector();
 
 	if (isset($_GET['save']))
     {
         $newIssues = explode(',', $_GET['issues']);
-        $newIssuesFinder->save($newIssues);
+        $newIssuesDetector->save($newIssues);
         die('Задачи сохранены');
     }
 
 	$latestDate = IssueStorage::getMaxDate();
-	$newIssues = $newIssuesFinder->findNewIssues();
+	$newIssues = $newIssuesDetector->detectNewIssues();
 	echo "Новые задачи " . (!is_null($latestDate) ? "после $latestDate" : '') . ':<br>';
     foreach ($newIssues as $i)
         echo $i . '<br>';
