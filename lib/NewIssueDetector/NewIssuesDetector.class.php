@@ -44,19 +44,18 @@ class NewIssuesDetector
 	{
 		$walker = new Walker(Helper::getApi());
 		$walker->push(
-			"project = 'CF' 
-			AND (status != closed OR resolution = Fixed) 
-			AND issuetype not in (epic)
-			AND status != Open
-			AND (fixVersion in unreleasedVersions() OR fixVersion is EMPTY) and 
-			(
-				issuetype not in subTaskIssueTypes() or 
+			'project = "Кросс-функциональная команда"
+			 AND (status != closed OR resolution = Fixed) 
+			 AND issuetype != Epic
+			 AND status != Open
+			 AND (fixVersion in unreleasedVersions() OR fixVersion is EMPTY) AND
+ 			(
+				issuetype not in subTaskIssueTypes() or
 				(
-					status not in (resolved, closed, 'To Do')
+					status not in (resolved, closed, "To Do")
 				)
-			)
-			OR 
-				project in ('Автоматизация тестирования', 'Релизная команда QA') AND assignee in (merkusheva, ponomareva)"
+ 			)
+			 OR (project in ("Автоматизация тестирования", "Релизная команда QA", Тестирование) AND assignee in (merkusheva, ponomareva))'
 		);
 		$issueList = [];
 		foreach ($walker as $issue) {
