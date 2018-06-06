@@ -54,8 +54,7 @@ class NewIssuesDetector
 				(
 					status not in (resolved, closed, "To Do")
 				)
- 			)
-			 OR (project in ("Автоматизация тестирования", "Релизная команда QA", Тестирование) AND assignee in (merkusheva, ponomareva))'
+ 			)'
 		);
 		$issueList = [];
 		foreach ($walker as $issue) {
