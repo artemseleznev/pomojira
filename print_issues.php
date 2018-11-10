@@ -3,8 +3,9 @@
  * @author Seleznyov Artyom seleznev@tutu.ru
  */
 
-require_once 'vendor/autoload.php';
-require_once 'lib/Helper.class.php';
+require_once "vendor/autoload.php";
+
+use Pomojira\Helper;
 
 $issueList = explode(',', $_GET['issues']);
 $dataToRender = [];

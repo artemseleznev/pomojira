@@ -7,10 +7,8 @@
 <?php
 ini_set('xdebug.var_display_max_children', 1024);
 require_once 'vendor/autoload.php';
-require_once 'lib/MetricsCalculator/MetricsCalculator.class.php';
-require_once 'lib/Helper.class.php';
 
-$calculator = new MetricsCalculator();
+$calculator = new \Pomojira\MetricsCalculator\MetricsCalculator();
 $result = $calculator->calculate();
 $dataForPlot = [];
 

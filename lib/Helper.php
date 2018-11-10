@@ -3,8 +3,10 @@
  * @author Seleznyov Artyom seleznev@tutu.ru
  */
 
-use chobie\Jira\Api;
-use chobie\Jira\Api\Authentication\Basic;
+namespace Pomojira;
+
+use Jira_Api;
+use Jira_Api_Authentication_Basic;
 
 class Helper
 {
@@ -16,9 +18,9 @@ class Helper
             $credentials = explode(';', file_get_contents('credentials'));
             list($login, $password) = $credentials;
 
-            self::$_api = new Api(
+            self::$_api = new Jira_Api(
                 'https://hq.tutu.ru',
-                new Basic($login, $password)
+                new Jira_Api_Authentication_Basic($login, $password)
             );
         }
 

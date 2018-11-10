@@ -3,7 +3,10 @@
  * @author Seleznyov Artyom seleznev@tutu.ru
  */
 
-use chobie\Jira\Issues\Walker;
+namespace Pomojira\NewIssuesDetector;
+
+use Pomojira\Helper;
+use Jira_Issues_Walker;
 
 class NewIssuesDetector
 {
@@ -36,7 +39,7 @@ class NewIssuesDetector
 
     private function _getIssuesFromBoard()
     {
-        $walker = new Walker(Helper::getApi());
+        $walker = new Jira_Issues_Walker(Helper::getApi());
         $walker->push(
             'project = "Кросс-функциональная команда"
 			 AND (status != closed OR resolution = Fixed) 

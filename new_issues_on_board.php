@@ -6,12 +6,9 @@
 <body>
 <?php
 
-require_once 'vendor/autoload.php';
-require_once 'lib/NewIssueDetector/NewIssuesDetector.class.php';
-require_once 'lib/NewIssueDetector/IssueStorage.class.php';
-require_once 'lib/Helper.class.php';
+require_once "vendor/autoload.php";
 
-$newIssuesDetector = new NewIssuesDetector();
+$newIssuesDetector = new \Pomojira\NewIssuesDetector\NewIssuesDetector();
 
 if (isset($_GET['save'])) {
     $newIssues = explode(',', $_GET['issues']);
@@ -19,7 +16,7 @@ if (isset($_GET['save'])) {
     die('Задачи сохранены');
 }
 
-$latestDate = IssueStorage::getMaxDate();
+$latestDate = \Pomojira\NewIssuesDetector\IssueStorage::getMaxDate();
 $newIssues = $newIssuesDetector->detectNewIssues();
 echo "Новые задачи " . (!is_null($latestDate) ? "после $latestDate" : '') . ':<br>';
 foreach ($newIssues as $i) {

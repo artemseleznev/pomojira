@@ -2,7 +2,6 @@
 /**
  * @author Seleznyov Artyom seleznev@tutu.ru
  */
-
 ?>
 <html>
 <head>
