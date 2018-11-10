@@ -1,21 +1,18 @@
 <html>
 <head>
-	<title>Жира-поможира: метрика времени выполнения</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Жира-поможира: метрика времени выполнения</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 <?php
 ini_set('xdebug.var_display_max_children', 1024);
 require_once 'vendor/autoload.php';
-require_once 'lib/MetricsCalculator/MetricsCalculator.class.php';
-require_once 'lib/Helper.class.php';
 
-$calculator = new MetricsCalculator();
+$calculator = new \Pomojira\MetricsCalculator\MetricsCalculator();
 $result = $calculator->calculate();
 $dataForPlot = [];
 
-foreach ($result as $key => $issueData)
-{
+foreach ($result as $key => $issueData) {
     $dataForPlot['in_progress_time'][] = [
         'year' => date('Y', strtotime($issueData['resolvedDateTime'])),
         'month' => date('n', strtotime($issueData['resolvedDateTime'])),
@@ -24,11 +21,11 @@ foreach ($result as $key => $issueData)
         'value' => $issueData['inProgressTime']
     ];
     $dataForPlot['lead_time'][] = [
-	    'year' => date('Y', strtotime($issueData['resolvedDateTime'])),
-	    'month' => date('n', strtotime($issueData['resolvedDateTime'])),
-	    'day' => date('j', strtotime($issueData['resolvedDateTime'])),
-	    'hour' => date('G', strtotime($issueData['resolvedDateTime'])),
-	    'value' => $issueData['leadTime']
+        'year' => date('Y', strtotime($issueData['resolvedDateTime'])),
+        'month' => date('n', strtotime($issueData['resolvedDateTime'])),
+        'day' => date('j', strtotime($issueData['resolvedDateTime'])),
+        'hour' => date('G', strtotime($issueData['resolvedDateTime'])),
+        'value' => $issueData['leadTime']
     ];
 }
 
@@ -83,15 +80,15 @@ foreach ($result as $key => $issueData)
             name: 'In Progress Time',
             data: [
                 <?foreach ($dataForPlot['in_progress_time'] as $issueData):?>
-                    [Date.UTC(<?=$issueData['year']?>, <?=$issueData['month']?>, <?=$issueData['day']?>, <?=$issueData['hour']?>), <?=$issueData['value']?>],
+                [Date.UTC(<?=$issueData['year']?>, <?=$issueData['month']?>, <?=$issueData['day']?>, <?=$issueData['hour']?>), <?=$issueData['value']?>],
                 <?endforeach?>
             ]
         }, {
             name: 'Lead Time',
             data: [
-	            <?foreach ($dataForPlot['lead_time'] as $issueData):?>
-                    [Date.UTC(<?=$issueData['year']?>, <?=$issueData['month']?>, <?=$issueData['day']?>, <?=$issueData['hour']?>), <?=$issueData['value']?>],
-	            <?endforeach?>
+                <?foreach ($dataForPlot['lead_time'] as $issueData):?>
+                [Date.UTC(<?=$issueData['year']?>, <?=$issueData['month']?>, <?=$issueData['day']?>, <?=$issueData['hour']?>), <?=$issueData['value']?>],
+                <?endforeach?>
             ]
         }]
     });

@@ -3,6 +3,8 @@
  * @author Seleznyov Artyom seleznev@tutu.ru
  */
 
+namespace Pomojira\NewIssuesDetector;
+
 class IssueStorage
 {
 	const TABLE_NAME = 'cf_board_issues';
@@ -35,6 +37,6 @@ class IssueStorage
 
 	private static function _PDO()
 	{
-		return new PDO('mysql:dbname=pomojira;host=localhost', 'root', '');
+		return new \PDO('mysql:dbname=pomojira;host=localhost', 'root', '');
 	}
 }

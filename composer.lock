@@ -1,42 +1,37 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41090ebda58546665f21f7ea3493bfe3",
+    "content-hash": "791acc0b2b29baf296f3cbd954b60294",
     "packages": [
         {
             "name": "chobie/jira-api-restclient",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chobie/jira-api-restclient.git",
-                "reference": "db8c1f095e412b52ef57c27fa4326b681a7e668b"
+                "reference": "68c082d2bbcab5e9ba97e8b46496b3b1afceed6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chobie/jira-api-restclient/zipball/db8c1f095e412b52ef57c27fa4326b681a7e668b",
-                "reference": "db8c1f095e412b52ef57c27fa4326b681a7e668b",
+                "url": "https://api.github.com/repos/chobie/jira-api-restclient/zipball/68c082d2bbcab5e9ba97e8b46496b3b1afceed6f",
+                "reference": "68c082d2bbcab5e9ba97e8b46496b3b1afceed6f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "aik099/coding-standard": "dev-master",
-                "phpunit/phpunit": "^4.1|^5.0",
-                "squizlabs/php_codesniffer": "^2.6"
+                "php": ">=5.2.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "chobie\\": "src"
+                "psr-0": {
+                    "Jira_": "./"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -47,24 +42,22 @@
                 {
                     "name": "Shuhei Tanuma",
                     "email": "chobieeee@php.net",
-                    "homepage": "http://chobie.github.io/"
+                    "homepage": "http://blog.stfalcon.com"
                 }
             ],
-            "description": "JIRA REST API Client",
+            "description": "JIRA REST API.",
             "keywords": [
                 "api",
                 "jira",
                 "rest"
             ],
-            "time": "2016-11-16 16:27:27"
+            "time": "2014-07-27T11:40:44+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "chobie/jira-api-restclient": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

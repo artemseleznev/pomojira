@@ -1,5 +1,11 @@
 {
+    "name": "artemseleznev/pomojira",
     "require": {
-        "chobie/jira-api-restclient": "^2.0@dev"
+        "chobie/jira-api-restclient": "1.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pomojira\\": "lib/"
+        }
     }
 }
