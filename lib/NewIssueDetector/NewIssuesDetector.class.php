@@ -7,44 +7,38 @@ use chobie\Jira\Issues\Walker;
 
 class NewIssuesDetector
 {
-	public function detectNewIssues()
-	{
-		$issueList = $this->_getIssuesFromBoard();
-		$savedIssuesList = $this->_getSavedIssues();
-		$newIssues = [];
-		foreach ($issueList as $i)
-		{
-			if (!in_array($i, $savedIssuesList))
-			{
-				$newIssues[] = $i;
-			}
-		}
+    public function detectNewIssues()
+    {
+        $issueList = $this->_getIssuesFromBoard();
+        $savedIssuesList = $this->_getSavedIssues();
+        $newIssues = [];
+        foreach ($issueList as $i) {
+            if (!in_array($i, $savedIssuesList)) {
+                $newIssues[] = $i;
+            }
+        }
 
-		return $newIssues;
-	}
+        return $newIssues;
+    }
 
-	public function save($issueList)
-	{
-		$savedIssuesList = $this->_getSavedIssues();
-		foreach ($issueList as $i)
-		{
-			if (!in_array($i, $savedIssuesList))
-			{
-				IssueStorage::insert([$i]);
-				$newIssues[] = $i;
-			}
-			else
-			{
-				IssueStorage::update($i);
-			}
-		}
-	}
+    public function save($issueList)
+    {
+        $savedIssuesList = $this->_getSavedIssues();
+        foreach ($issueList as $i) {
+            if (!in_array($i, $savedIssuesList)) {
+                IssueStorage::insert([$i]);
+                $newIssues[] = $i;
+            } else {
+                IssueStorage::update($i);
+            }
+        }
+    }
 
-	private function _getIssuesFromBoard()
-	{
-		$walker = new Walker(Helper::getApi());
-		$walker->push(
-			'project = "Кросс-функциональная команда"
+    private function _getIssuesFromBoard()
+    {
+        $walker = new Walker(Helper::getApi());
+        $walker->push(
+            'project = "Кросс-функциональная команда"
 			 AND (status != closed OR resolution = Fixed) 
 			 AND issuetype != Epic
 			 AND status != Open
@@ -55,22 +49,21 @@ class NewIssuesDetector
 					status not in (resolved, closed, "To Do")
 				)
  			)'
-		);
-		$issueList = [];
-		foreach ($walker as $issue) {
-			$issueList[] = $issue->getKey();
-		}
+        );
+        $issueList = [];
+        foreach ($walker as $issue) {
+            $issueList[] = $issue->getKey();
+        }
 
-		return $issueList;
-	}
+        return $issueList;
+    }
 
-	private function _getSavedIssues()
-	{
-		$res = [];
-		foreach (IssueStorage::select() as $item)
-		{
-			$res[] = $item['issue_key'];
-		}
-		return $res;
-	}
+    private function _getSavedIssues()
+    {
+        $res = [];
+        foreach (IssueStorage::select() as $item) {
+            $res[] = $item['issue_key'];
+        }
+        return $res;
+    }
 }
