@@ -1,7 +1,8 @@
 {
     "name": "artemseleznev/pomojira",
     "require": {
-        "chobie/jira-api-restclient": "1.0.0"
+        "chobie/jira-api-restclient": "1.0.0",
+        "vlucas/phpdotenv": "2.5.1"
     },
     "autoload": {
         "psr-4": {

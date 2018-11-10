@@ -37,6 +37,15 @@ class IssueStorage
 
 	private static function _PDO()
 	{
-		return new \PDO('mysql:dbname=pomojira;host=localhost', 'root', '');
+	    $dbName = getenv('MYSQL_DB');
+	    $host = getenv('MYSQL_HOST');
+	    $port = getenv('MYSQL_PORT');
+	    $user = getenv('MYSQL_USER');
+	    $password = getenv('MYSQL_PASSWORD');
+		return new \PDO(
+		    "mysql:dbname=$dbName;host=$host;port=$port",
+            $user,
+            $password
+        );
 	}
 }

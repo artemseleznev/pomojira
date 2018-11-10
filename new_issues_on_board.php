@@ -5,8 +5,10 @@
 </head>
 <body>
 <?php
+use Pomojira\Helper;
 
 require_once "vendor/autoload.php";
+Helper::initDotenv();
 
 $newIssuesDetector = new \Pomojira\NewIssuesDetector\NewIssuesDetector();
 

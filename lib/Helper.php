@@ -7,6 +7,7 @@ namespace Pomojira;
 
 use Jira_Api;
 use Jira_Api_Authentication_Basic;
+use Dotenv\Dotenv;
 
 class Helper
 {
@@ -15,15 +16,20 @@ class Helper
     public static function getApi()
     {
         if (is_null(self::$_api)) {
-            $credentials = explode(';', file_get_contents('credentials'));
-            list($login, $password) = $credentials;
+            list($login, $password) = [getenv('JIRA_USER'), getenv('JIRA_PASSWORD')];
 
             self::$_api = new Jira_Api(
-                'https://hq.tutu.ru',
+                getenv('JIRA_HOST'),
                 new Jira_Api_Authentication_Basic($login, $password)
             );
         }
 
         return self::$_api;
+    }
+
+    public static function initDotenv()
+    {
+        $dotenv = new Dotenv(__DIR__.DIRECTORY_SEPARATOR.'..');
+        $dotenv->load();
     }
 }

@@ -7,6 +7,7 @@
 <?php
 ini_set('xdebug.var_display_max_children', 1024);
 require_once 'vendor/autoload.php';
+\Pomojira\Helper::initDotenv();
 
 $calculator = new \Pomojira\MetricsCalculator\MetricsCalculator();
 $result = $calculator->calculate();

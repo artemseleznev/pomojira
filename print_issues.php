@@ -6,7 +6,7 @@
 require_once "vendor/autoload.php";
 
 use Pomojira\Helper;
-
+Helper::initDotenv();
 $issueList = explode(',', $_GET['issues']);
 $dataToRender = [];
 foreach ($issueList as $issueKey) {
@@ -28,17 +28,17 @@ foreach ($issueList as $issueKey) {
     <title>Print jira issues</title>
 </head>
 <link type="text/css" rel="stylesheet"
-      href="https://hq.tutu.ru/s/a3fc6c7eda193d15bf35cbfeecbdd86f-CDN/-1eamx9/75007/e2b820449dba7db3e64153a92911b4be/aa6cf545ff213915ecbf1d6cdcbaa2cc/_/download/contextbatch/css/_super/batch.css"
+      href="<?=getenv('JIRA_HOST')?>/s/a3fc6c7eda193d15bf35cbfeecbdd86f-CDN/-1eamx9/75007/e2b820449dba7db3e64153a92911b4be/aa6cf545ff213915ecbf1d6cdcbaa2cc/_/download/contextbatch/css/_super/batch.css"
       data-wrm-key="_super" data-wrm-batch-type="context" media="all">
 <link type="text/css" rel="stylesheet"
-      href="https://hq.tutu.ru/s/f6e9358fbf5ece8e8fb6a17329d714f3-CDN/-1eamx9/75007/e2b820449dba7db3e64153a92911b4be/4ab0e2fb52a2d56d6012a4925948cff4/_/download/contextbatch/css/greenhopper-rapid-non-gadget,atl.general,gh-rapid,jira.project.sidebar,com.atlassian.jira.projects.sidebar.init,jira.global,jira.general,-_super/batch.css?agile_global_admin_condition=true&amp;hc-enabled=true&amp;is-server-instance=true&amp;jag=true&amp;jaguser=true&amp;nps-not-opted-out=true&amp;richediton=true&amp;sd_operational=true"
+      href="<?=getenv('JIRA_HOST')?>/s/f6e9358fbf5ece8e8fb6a17329d714f3-CDN/-1eamx9/75007/e2b820449dba7db3e64153a92911b4be/4ab0e2fb52a2d56d6012a4925948cff4/_/download/contextbatch/css/greenhopper-rapid-non-gadget,atl.general,gh-rapid,jira.project.sidebar,com.atlassian.jira.projects.sidebar.init,jira.global,jira.general,-_super/batch.css?agile_global_admin_condition=true&amp;hc-enabled=true&amp;is-server-instance=true&amp;jag=true&amp;jaguser=true&amp;nps-not-opted-out=true&amp;richediton=true&amp;sd_operational=true"
       data-wrm-key="greenhopper-rapid-non-gadget,atl.general,gh-rapid,jira.project.sidebar,com.atlassian.jira.projects.sidebar.init,jira.global,jira.general,-_super"
       data-wrm-batch-type="context" media="all">
 <link type="text/css" rel="stylesheet"
-      href="https://hq.tutu.ru/s/32d154aa5ed37a219ff9cd15b0a8a7d1-CDN/-1eamx9/75007/e2b820449dba7db3e64153a92911b4be/95500190d36d26962b40eba9cc2f98e5/_/download/contextbatch/css/gh-rapid-charts,-_super/batch.css"
+      href="<?=getenv('JIRA_HOST')?>/s/32d154aa5ed37a219ff9cd15b0a8a7d1-CDN/-1eamx9/75007/e2b820449dba7db3e64153a92911b4be/95500190d36d26962b40eba9cc2f98e5/_/download/contextbatch/css/gh-rapid-charts,-_super/batch.css"
       data-wrm-key="gh-rapid-charts,-_super" data-wrm-batch-type="context" media="all">
 <link type="text/css" rel="stylesheet"
-      href="https://hq.tutu.ru/s/b0798f450f70bcb060fee4ed5fc98bf0-T/-1eamx9/75007/e2b820449dba7db3e64153a92911b4be/7.5.2/_/download/batch/com.atlassian.feedback.jira-feedback-plugin:button-resources-init/com.atlassian.feedback.jira-feedback-plugin:button-resources-init.css"
+      href="<?=getenv('JIRA_HOST')?>s/b0798f450f70bcb060fee4ed5fc98bf0-T/-1eamx9/75007/e2b820449dba7db3e64153a92911b4be/7.5.2/_/download/batch/com.atlassian.feedback.jira-feedback-plugin:button-resources-init/com.atlassian.feedback.jira-feedback-plugin:button-resources-init.css"
       data-wrm-key="com.atlassian.feedback.jira-feedback-plugin:button-resources-init" data-wrm-batch-type="resource" media="all">
 <style type="text/css">
     @media print {
